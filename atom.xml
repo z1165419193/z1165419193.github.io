@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-14T10:33:30.518Z</updated>
+  <updated>2017-09-17T03:21:26.512Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo博客创建</title>
+    <link href="http://yoursite.com/2017/09/17/hexo%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/2017/09/17/hexo博客创建教程/</id>
+    <published>2017-09-17T02:26:30.000Z</published>
+    <updated>2017-09-17T03:21:26.512Z</updated>
+    
+    <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""><p><strong>hexo博客创建：</strong><br>这是一篇有关如何使用Github Pages和Hexo搭建自己独立博客的详尽教程，里面介绍了如何使用和配置Hexo框架，如何将Hexo部署到自己的Github项目中。<br><a id="more"></a></p><p><the rest="" of="" contents="" |="" 余下全文=""></the></p><h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>在电脑上安装 Node.js和Git<br>Node.js仅需到官网上下载安装并执行即可完成安装。<br><img src="http://upload-images.jianshu.io/upload_images/1712159-b460a3d917ed2ad7.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>安装Git<br>安装教程:<a href="https://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html" target="_blank" rel="external">Git安装教程</a><br>一、Hexo安装<br>桌面右键鼠标，点击Git Bash Here，输入npm命令即可安装 </p><pre><code>npm install hexo-cli -gnpm install hexo --save#如果命令无法运行，可以尝试更换taobao的npm源npm install -g cnpm --registry=https://registry.npm.taobao.org  </code></pre><p>二、Hexo初始化配置<br>创建Hexo文件夹<br>安装完成后，根据自己喜好建立目录（如F:\Blog\Hexo），直接进入F:\Blog\Hexo文件夹下右键鼠标，点击Git Bash Here，进入Git命令框，执行以下操作。<br>    $ hexo init<br>    $ npm install<br>安装Hexo插件<br>如果想不出错，就将下面的插件都安装完。 </p><pre><code>npm install hexo-generator-index --savenpm install hexo-generator-archive --savenpm install hexo-generator-category --savenpm install hexo-generator-tag --savenpm install hexo-server --savenpm install hexo-deployer-git --savenpm install hexo-deployer-heroku --savenpm install hexo-deployer-rsync --savenpm install hexo-deployer-openshift --savenpm install hexo-renderer-marked@0.2 --savenpm install hexo-renderer-stylus@0.2 --savenpm install hexo-generator-feed@1 --savenpm install hexo-generator-sitemap@1 --save  </code></pre><p>本地查看效果<br>执行下面语句，执行完即可登录localhost:4000查看效果<br>    hexo g<br>    hexo s<br>登录localhost:4000，即可看到本地的效果如下：<br><img src="http://upload-images.jianshu.io/upload_images/1712159-9426f901de7b2a47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><p>将博客部署到Github Pages上<br>那么现在本地的博客已经搭建起来了，但是我们只可以通过本地连接查看我们的博客。那么我们现在需要做的就是把本地的博客发布到服务器上，让别人也可以连接我们的博客，而Github Pages就帮我完成了这件事情。但是Github Pages的代码就是寄存在Github上面的。那么接下来我们需要在Github上面创建一个新的项目。<br>一、注册Github账户<br>Github账户的创建:<a href="https://github.com/" target="_blank" rel="external">注册</a><br>创建完成后，创建一个项目。<br><img src="http://upload-images.jianshu.io/upload_images/1712159-3dfd013c098b6665.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>三、配置SSH密钥<br>置Github的SSH密钥可以让本地git项目与远程的github建立联系，让我们在本地写了代码之后直接通过git操作就可以实现本地代码库与Github代码库同步。操作如下：</p><pre><code>$ssh-keygen -t rsa -C &quot;your_email@example.com&quot;#这将按照你提供的邮箱地址，创建一对密钥Generating public/private rsa key pair.Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]  </code></pre><p>接着，根据提示，你需要输入密码和确认密码（说到这里，如果你很放心，其实可以不用密码，就是到输密码的地方，都直接回车，所以每次push就只管回车就行了。所谓的最安全的密码，就是没有密码 哈哈）。<br>输入完成之后，屏幕会显示如下信息：<br>    Your identification has been saved in /c/Users/you/.ssh/id_rsa.<br>    Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub.<br>    The key fingerprint is:<br>    01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com<br>第三步、在GitHub账户中添加你的公钥  </p><p>运行如下命令，将公钥的内容复制到系统粘贴板(clipboard)中。</p><pre><code>clip &lt; ~/.ssh/id_rsa.pub  </code></pre><p>登陆GitHub,进入你的Account Settings.<br><img src="http://upload-images.jianshu.io/upload_images/1712159-efd0f7a036164831.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>选择SSH Keys</p><p><img src="http://upload-images.jianshu.io/upload_images/1712159-173750b1a4a73d95.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>粘贴密钥，添加即可</p><p><img src="http://upload-images.jianshu.io/upload_images/1712159-0419298696b76bc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><h1 id="第四步-测试"><a href="#第四步-测试" class="headerlink" title="第四步 测试"></a>第四步 测试</h1><p>可以输入下面的命令，看看设置是否成功，git@github.com的部分不要修改：</p><pre><code>$ ssh -T git@github.com  </code></pre><p>如果是下面的反馈：</p><pre><code>The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.Are you sure you want to continue connecting (yes/no)?  </code></pre><p>不要紧张，输入yes就好，然后会看到：<br>    Hi cnfeat! You’ve successfully authenticated, but GitHub does not provide shell access.  </p><p>四、将本地的Hexo文件更新到Github的库中<br>第一步、登录Github打开自己的项目 username.github.io</p><p><img src="http://upload-images.jianshu.io/upload_images/1712159-498a45ca6e440df3.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>第二步、打开之后，点击HTTPS，选择HTTPS类型地址  </p><p><img src="http://upload-images.jianshu.io/upload_images/1712159-f97379e0b3497f5a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第三步、复制地址</p><p><img src="http://upload-images.jianshu.io/upload_images/1712159-ac6434debb60a856.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第四步、打开你一开始创建的Hexo文件夹（如F:\Blog\Hexo），用记事本打开刚文件夹下的_config.yml文件</p><p><img src="http://upload-images.jianshu.io/upload_images/1712159-41a0ba385286d40e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第五步、在配置文件里作如下修改，保存</p><p><img src="http://upload-images.jianshu.io/upload_images/1712159-8ffc6e0fd819dff6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第六步、在Hexo文件夹下执行：</p><pre><code>hexo g -d</code></pre><p>执行完之后会让你输入github的账号和密码，输入完后就可以登录我们自己的部署在Github Pages服务器上的博客了。对应的地址是 username.github.io(我的是：z1165419193.github.io)。<br>第七步、在浏览器上输入自己的主页地址</p><p>在浏览器上输入即可看到我们自己的博客，别人电脑输入也可以哦。<br><img src="http://upload-images.jianshu.io/upload_images/1712159-102fc641972e4cf3.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>出处：小白独立搭建博客</p></excerpt>]]></content>
+    
+    <summary type="html">
+    
+      &lt;excerpt in=&quot;&quot; index=&quot;&quot; |=&quot;&quot; 首页摘要=&quot;&quot;&gt;
+
+&lt;p&gt;&lt;strong&gt;hexo博客创建：&lt;/strong&gt;&lt;br&gt;这是一篇有关如何使用Github Pages和Hexo搭建自己独立博客的详尽教程，里面介绍了如何使用和配置Hexo框架，如何将Hexo部署到自己的Github项目中。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="know" scheme="http://yoursite.com/categories/know/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>

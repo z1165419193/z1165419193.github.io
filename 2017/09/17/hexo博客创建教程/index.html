@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        hexo博客创建 · fi3ework&#39;s Studio
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- 提前加载place holder  -->
+    <style>
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url('/font/Oswald-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('/font/Source Sans Pro.woff'),
+            url('/font/Source Sans Pro.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Source Code Pro';
+            src: url('/font/SourceCodePro-Regular.ttf.woff'),
+            url('/font/SourceCodePro-Regular.ttf.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        
+        .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0px;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        99% {
+            transform: translate3d(0, 0, 0);
+        }
+        99.1% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(-226px, 0, 0);
+        }
+    }
+    </style>
+    <link rel="stylesheet" href = "/css/style.css?v=20170912" />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">hexo博客创建</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>fi3ework's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            hexo博客创建
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+        </p>
+        <!-- 404 -->
+        
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = hexo>hexo</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/09/17</span>
+            </div>
+        
+    </div>
+</div>
+        <div class="container">
+            <main class="main post-page">
+    <article class="article-entry">
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p><strong>hexo博客创建：</strong><br>这是一篇有关如何使用Github Pages和Hexo搭建自己独立博客的详尽教程，里面介绍了如何使用和配置Hexo框架，如何将Hexo部署到自己的Github项目中。<br><a id="more"></a></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>在电脑上安装 Node.js和Git<br>Node.js仅需到官网上下载安装并执行即可完成安装。<br><img src="http://upload-images.jianshu.io/upload_images/1712159-b460a3d917ed2ad7.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>安装Git<br>安装教程:<a href="https://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html" target="_blank" rel="external">Git安装教程</a><br>一、Hexo安装<br>桌面右键鼠标，点击Git Bash Here，输入npm命令即可安装 </p>
+<pre><code>npm install hexo-cli -g
+npm install hexo --save
+#如果命令无法运行，可以尝试更换taobao的npm源
+npm install -g cnpm --registry=https://registry.npm.taobao.org  
+</code></pre><p>二、Hexo初始化配置<br>创建Hexo文件夹<br>安装完成后，根据自己喜好建立目录（如F:\Blog\Hexo），直接进入F:\Blog\Hexo文件夹下右键鼠标，点击Git Bash Here，进入Git命令框，执行以下操作。<br>    $ hexo init<br>    $ npm install<br>安装Hexo插件<br>如果想不出错，就将下面的插件都安装完。 </p>
+<pre><code>npm install hexo-generator-index --save
+npm install hexo-generator-archive --save
+npm install hexo-generator-category --save
+npm install hexo-generator-tag --save
+npm install hexo-server --save
+npm install hexo-deployer-git --save
+npm install hexo-deployer-heroku --save
+npm install hexo-deployer-rsync --save
+npm install hexo-deployer-openshift --save
+npm install hexo-renderer-marked@0.2 --save
+npm install hexo-renderer-stylus@0.2 --save
+npm install hexo-generator-feed@1 --save
+npm install hexo-generator-sitemap@1 --save  
+</code></pre><p>本地查看效果<br>执行下面语句，执行完即可登录localhost:4000查看效果<br>    hexo g<br>    hexo s<br>登录localhost:4000，即可看到本地的效果如下：<br><img src="http://upload-images.jianshu.io/upload_images/1712159-9426f901de7b2a47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><p>将博客部署到Github Pages上<br>那么现在本地的博客已经搭建起来了，但是我们只可以通过本地连接查看我们的博客。那么我们现在需要做的就是把本地的博客发布到服务器上，让别人也可以连接我们的博客，而Github Pages就帮我完成了这件事情。但是Github Pages的代码就是寄存在Github上面的。那么接下来我们需要在Github上面创建一个新的项目。<br>一、注册Github账户<br>Github账户的创建:<a href="https://github.com/" target="_blank" rel="external">注册</a><br>创建完成后，创建一个项目。<br><img src="http://upload-images.jianshu.io/upload_images/1712159-3dfd013c098b6665.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>三、配置SSH密钥<br>置Github的SSH密钥可以让本地git项目与远程的github建立联系，让我们在本地写了代码之后直接通过git操作就可以实现本地代码库与Github代码库同步。操作如下：</p>
+<pre><code>$ssh-keygen -t rsa -C &quot;your_email@example.com&quot;
+#这将按照你提供的邮箱地址，创建一对密钥
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]  
+</code></pre><p>接着，根据提示，你需要输入密码和确认密码（说到这里，如果你很放心，其实可以不用密码，就是到输密码的地方，都直接回车，所以每次push就只管回车就行了。所谓的最安全的密码，就是没有密码 哈哈）。<br>输入完成之后，屏幕会显示如下信息：<br>    Your identification has been saved in /c/Users/you/.ssh/id_rsa.<br>    Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub.<br>    The key fingerprint is:<br>    01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com<br>第三步、在GitHub账户中添加你的公钥  </p>
+<p>运行如下命令，将公钥的内容复制到系统粘贴板(clipboard)中。</p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub  
+</code></pre><p>登陆GitHub,进入你的Account Settings.<br><img src="http://upload-images.jianshu.io/upload_images/1712159-efd0f7a036164831.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>选择SSH Keys</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1712159-173750b1a4a73d95.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>粘贴密钥，添加即可</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1712159-0419298696b76bc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h1 id="第四步-测试"><a href="#第四步-测试" class="headerlink" title="第四步 测试"></a>第四步 测试</h1><p>可以输入下面的命令，看看设置是否成功，git@github.com的部分不要修改：</p>
+<pre><code>$ ssh -T git@github.com  
+</code></pre><p>如果是下面的反馈：</p>
+<pre><code>The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)?  
+</code></pre><p>不要紧张，输入yes就好，然后会看到：<br>    Hi cnfeat! You’ve successfully authenticated, but GitHub does not provide shell access.  </p>
+<p>四、将本地的Hexo文件更新到Github的库中<br>第一步、登录Github打开自己的项目 username.github.io</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1712159-498a45ca6e440df3.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>第二步、打开之后，点击HTTPS，选择HTTPS类型地址  </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1712159-f97379e0b3497f5a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第三步、复制地址</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1712159-ac6434debb60a856.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第四步、打开你一开始创建的Hexo文件夹（如F:\Blog\Hexo），用记事本打开刚文件夹下的_config.yml文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1712159-41a0ba385286d40e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第五步、在配置文件里作如下修改，保存</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1712159-8ffc6e0fd819dff6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第六步、在Hexo文件夹下执行：</p>
+<pre><code>hexo g -d
+</code></pre><p>执行完之后会让你输入github的账号和密码，输入完后就可以登录我们自己的部署在Github Pages服务器上的博客了。对应的地址是 username.github.io(我的是：z1165419193.github.io)。<br>第七步、在浏览器上输入自己的主页地址</p>
+<p>在浏览器上输入即可看到我们自己的博客，别人电脑输入也可以哦。<br><img src="http://upload-images.jianshu.io/upload_images/1712159-102fc641972e4cf3.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br>出处：小白独立搭建博客</p>
+</excerpt>
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/09/14/hello-world/" title= Hello World >
+                    <span>Previous Post</span>
+                    <span>Hello World</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
+    
+
+<!-- City版安装代码已完成 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="emailto:1165419193@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//z1165419193.github.io/" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span>
+        <span
+            id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 3 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2017/09/17/hexo博客创建教程/" >hexo博客创建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2017/09/14/hello-world/" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2017/07/07/hexo博客主题部分设定添加/" >hexo博客主题部分--标签</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">hexo</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
