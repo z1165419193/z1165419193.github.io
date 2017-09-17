@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-17T03:32:04.198Z</updated>
+  <updated>2017-09-17T11:38:55.912Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2017/09/17/Markdown%E8%AF%AD%E6%B3%95/"/>
     <id>http://yoursite.com/2017/09/17/Markdown语法/</id>
     <published>2017-09-17T03:25:25.000Z</published>
-    <updated>2017-09-17T03:32:04.198Z</updated>
+    <updated>2017-09-17T11:38:55.912Z</updated>
     
-    <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""><p>如何换行：按两下空格  自动换行<br>如何设置超链接：<a href="超链接网址）  如何使代码有背景与标识：按四下空格  而且要与上一行文字空一行的距离  例如：[百度](www.baidu.com">超链接文字</a><br>其他详细的用法：<br><a href="http://www.jianshu.com/p/075d7cac8fef" target="_blank" rel="external">目录</a></p><p>区块元素<br>标题</p><p>列表</p><p>区块引用</p><p>代码区块</p><p>分隔线</p><p>段落和换行</p><p>区段元素<br>链接</p><p>强调</p><p>代码</p><p>图片</p><p>转义</p></excerpt>]]></content>
+    <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""><p>如何换行：按两下空格  自动换行<br>如何使代码有背景与标识：按四下空格  而且要与上一行文字空一行的距离<br>例如： <a href="www.baidu.com">百度</a><br>其他详细的用法：<br><a href="http://www.jianshu.com/p/075d7cac8fef" target="_blank" rel="external">目录</a></p><p>区块元素<br>标题</p><p>列表</p><p>区块引用</p><p>代码区块</p><p>分隔线</p><p>段落和换行</p><p>区段元素<br>链接</p><p>强调</p><p>代码</p><p>图片</p><p>转义</p></excerpt>]]></content>
     
     <summary type="html">
     
@@ -31,9 +31,7 @@
       
         &lt;excerpt in=&quot;&quot; index=&quot;&quot; |=&quot;&quot; 首页摘要=&quot;&quot;&gt;
 
-&lt;p&gt;如何换行：按两下空格  自动换行&lt;br&gt;如何设置超链接：&lt;a href=&quot;超链接网址）  
-如何使代码有背景与标识：按四下空格  而且要与上一行文字空一行的距离  
-例如：[百度](www.bai
+&lt;p&gt;如何换行：按两下空格  自动换行&lt;br&gt;如何使代码有背景与标识：按四下空格  而且要与上一行文字空一行的距离&lt;br&gt;例如： &lt;a href=&quot;www.baidu.com&quot;&gt;百度&lt;/a&gt;&lt;br&gt;其他
       
     
     </summary>
