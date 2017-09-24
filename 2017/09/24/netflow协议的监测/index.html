@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Markdown的小技巧 · fi3ework&#39;s Studio
+        Netflow协议流量分析与检测 · fi3ework&#39;s Studio
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >fi3ework&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Markdown的小技巧</a>
+                <a href="#" class="post-name">Netflow协议流量分析与检测</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Markdown的小技巧
+            Netflow协议流量分析与检测
             <!-- 404 -->
             
         </h1>
@@ -120,13 +120,13 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = Markdown>Markdown</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = netflow>netflow</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/09/17</span>
+                <span class="post-intro-time">2017/09/24</span>
             </div>
         
     </div>
@@ -134,38 +134,46 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <excerpt in="" index="" |="" 首页摘要="">
+        <p><excerpt in="" index="" |="" 首页摘要=""><br><strong>netflow：</strong></excerpt></p>
+<h1 id="netflow介绍"><a href="#netflow介绍" class="headerlink" title="netflow介绍"></a>netflow介绍</h1><p>&emsp;&emsp;NetFlow是一种数据交换方式，其工作原理是：NetFlow利用标准的交换模式处理数据流的第一个IP包数据，生成NetFlow 缓存，随后同样的数据基于缓存信息在同一个数据流中进行传输，不再匹配相关的访问控制等策略，NetFlow缓存同时包含了随后数据流的统计信息。<br>&emsp;&emsp;利用Netflow技术可以监测网络上的IP流（IP flow）信息。采集到的netflow流量信息可以帮助进行网络规划，网络管理，流量计费和病毒检测等等。<br>&emsp;&emsp;netflow是cisco开发并一直升级的，所以现在的netflow在思科的路由、交换器上是应用最广又或者是只有思科的路由器有这样的功能，只有极少数的路由有并且只是sflow的功能，像juniper。但是并不是所有思科的路由、交换器都有netflow功能，版本越高的路由器功能越全面，像c7200。版本较低的可能就没有，像c3630这个版本就不能配置netflow。</p>
+<h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>这次安装的是ManageEngine NetFlow Analyzer 9这款软件<br>下载链接：<br><a href="http://www.manageengine.com/products/netflow/download.html#more_download" target="_blank" rel="external">http://www.manageengine.com/products/netflow/download.html#more_download</a><br>下载界面：<img src="https://i.imgur.com/qPh7H18.png" alt=""></p>
+<h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><p>通过超级终端，进入到思科2801路由器中进行相关的配置.<br>主要完成配置后，能使两个网络进行通讯。<br>先对两个接口进行配置ip地址<br>具体命令：    </p>
+<pre><code>router&gt;en
+router#conf t
+router(config)#int f0/0
+router(config-if)#ip add 192.168.13.9 255.255.255.0
+router(config-if)#no shutdown
+router(config-if)#exit
+router(config)#int f0/1
+router(config-if)#ip add 192.168.14.9 255.255.255.0
+router(config-if)#no shutdown
+router(config-if)#exit  
+</code></pre><p>此时是基础ip配置，接下来可以在动态路由协议和静态路由协议两者中选择一个来使网络通信。<br>动态路由协议配置如下：    </p>
+<pre><code>router(config)#router ospf 1
+router(config-router)#network 192.168.13.0 0.0.0.255 area 0
+router(config-router)#network 192.168.14.0 0.0.0.255 area 0     
+router(config-router)#exit
+</code></pre><p>静态路由协议配置如下：    </p>
+<pre><code>router(config)#router rip
+router(config-router)#network 192.168.13.0
+router(config-router)#network 192.168.14.0
+router(config-router)#exit
+</code></pre><p>show:<br><img src="https://i.imgur.com/4N3fjU4.png" alt=""></p>
+<p>#第三步    </p>
+<p>在2801路由器上配置关于netflow部分的协议：<br>config全局状态下配置netflow版本号：<br>(config)#ip flow-export version 5<br>2、config全局状态下配置netflow服务器地址和端口号：<br>(config)#ip flow-export destination xxx.xxx.xxx.xxx 9996<br>其中，xxx.xxx.xxx.xxx为netflow服务器地址，即运行netflow版流量监视程序主机的IP地址，9996为服务端口号，即安装软件时的那个端口号。<br>在Cisco系列路由器交换机每个接口上（例如interface fastethernet0/0；interface fastethernet0/1等）分别进行配置：<br>(config-if)#ip route-cache flow<br>4、Config全局状态下设置时区<br>(config)#clock timezone Beijing 8<br>此命令配置为北京时间，+8时区。<br>enable状态下设置日期时间<br>clock set 17:05:00  6 aug 2003<br>此命令配置为2003年8月6日17时05分00秒。      </p>
+<p>#此时2801的配置<br>router(config)#ip flow-export version 5<br>router(config)#ip flow-export destination 192.168.14.10 9996<br>router（config）#int f0/0<br>router(config-if)#ip route-cache flow<br>router(config)#int f0/1<br>router(config-if)#ip route-cache flow<br>router(config)#clock timezone Beijing 8<br>router#clock set 15：18：20  24 sep 2017      </p>
+<p>#show ip cache flow:<br>显示当前活动的流的概要，还显示设备输出了多少Netflow数据<br><img src="https://i.imgur.com/474lewt.png" alt=""><br>ping 192.168.14.10<br><img src="https://i.imgur.com/b8918Fz.png" alt="">    </p>
+<p>#第四步：<br>netflow监测界面<br><img src="https://i.imgur.com/dGOAkj5.jpg" alt=""><br><img src="https://i.imgur.com/O8Gn1n9.jpg" alt=""><br><img src="https://i.imgur.com/HUBieM3.jpg" alt=""></p>
 
-<p>如何换行：按两下空格  自动换行<br>如何使代码有背景与标识：按四下空格  而且要与上一行文字空一行的距离<br>例如： <a href="www.baidu.com">百度</a><br>markdown中实现首行缩进的两种方法：<br>由于markdown语法主要考虑的是英文，所以对于中文的首行缩进并不太友好，两种方法都可以完美解决这个问题<br>半方大的空白“&amp;ensp”;或“&amp;#8194”;<br>全方大的空白“&amp;emsp”;或“&amp;#8195”;<br>不断行的空白格“&amp;nbsp”;或“&amp;#160”;</p>
-<p>其他详细的用法：<br><a href="http://www.jianshu.com/p/075d7cac8fef" target="_blank" rel="external">目录</a></p>
-<p>区块元素<br>标题</p>
-<p>列表</p>
-<p>区块引用</p>
-<p>代码区块</p>
-<p>分隔线</p>
-<p>段落和换行</p>
-<p>区段元素<br>链接</p>
-<p>强调</p>
-<p>代码</p>
-<p>图片</p>
-<p>转义</p>
-</excerpt>
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/09/24/netflow协议的监测/" title= Netflow协议流量分析与检测 >
-                    <span>Next Post</span>
-                    <span>Netflow协议流量分析与检测</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/09/17/hexo博客创建教程/" title= hexo博客创建 >
+                <a href= "/2017/09/17/Markdown语法/" title= Markdown的小技巧 >
                     <span>Previous Post</span>
-                    <span>hexo博客创建</span>
+                    <span>Markdown的小技巧</span>
                 </a>
             </li>
         
