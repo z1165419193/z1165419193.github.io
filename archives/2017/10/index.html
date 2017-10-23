@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        about · fi3ework&#39;s Studio
+        fi3ework&#39;s Studio
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -98,21 +98,46 @@
     </div>
 </div>
         <div class="container">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h2 id="PERSONAL-PROFILE"><a href="#PERSONAL-PROFILE" class="headerlink" title="PERSONAL PROFILE"></a>PERSONAL PROFILE</h2><p>白发银发，泪如沙华</p>
-
-    </article>
-    <!-- 前后页  -->
-    <ul class="post-pager">
-        
-        
-    </ul>
-    <!-- 来必力City版安装代码 -->
-
+            <main class="main index-page">
     
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/23/centos7下jdk以及环境变量的配置/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>centos7安装jdk配置环境变量</span>
+                    </h2>
+                <div class="abstract-content">
+                    
 
-<!-- City版安装代码已完成 -->
+   在Centos7 终端中，我们输入java -version可以看到java的版本，但是输入javac却没有反应
+原因是系统中预装的是openjdk jre不是真正的jdk，所以还得自己装好，然后配置好变量才行  1、yum list java-*
+2、安装相应版本的jdk，一般含有devel的就是真正的jdk，如：java-1.8.0-openjdk-devel.x86_64
+命令：yum install java-1.8.0-openjdk-devel.x86_64     
+3、vi /etc/profile
+添加环境变量(注意是分号分割)：
+export JAVA_HO...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Markdown>Markdown</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/23</span>
+                </div>
+            </div>
+        </article>
+    
+    <!-- paginator  -->
+    
 </main>
             <!-- profile -->
             

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        about · fi3ework&#39;s Studio
+        centos7安装jdk配置环境变量 · fi3ework&#39;s Studio
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">centos7安装jdk配置环境变量</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>fi3ework's Studio.</a>
 </header>
@@ -80,32 +91,75 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            centos7安装jdk配置环境变量
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Markdown>Markdown</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/10/23</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="PERSONAL-PROFILE"><a href="#PERSONAL-PROFILE" class="headerlink" title="PERSONAL PROFILE"></a>PERSONAL PROFILE</h2><p>白发银发，泪如沙华</p>
+        <excerpt in="" index="" |="" 首页摘要="">
 
+<p>   在Centos7 终端中，我们输入java -version可以看到java的版本，但是输入javac却没有反应</p>
+<p>原因是系统中预装的是openjdk jre不是真正的jdk，所以还得自己装好，然后配置好变量才行<br>  1、yum list java-*<br><img src="https://i.imgur.com/koPUiKg.png" alt=""></p>
+<p>2、安装相应版本的jdk，一般含有devel的就是真正的jdk，如：java-1.8.0-openjdk-devel.x86_64</p>
+<p>命令：yum install java-1.8.0-openjdk-devel.x86_64<br><img src="https://i.imgur.com/WxW93C5.png" alt="">     </p>
+<p>3、vi /etc/profile</p>
+<p>添加环境变量(注意是分号分割)：</p>
+<p>export JAVA_HOME=/usr/lib/jvm/java</p>
+<p>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/jre/lib/rt.jar</p>
+<p>export PATH=$PATH:$JAVA_HOME/bin<br><img src="https://i.imgur.com/dBwskGU.png" alt=""></p>
+<p>4、source  /etc/profile</p>
+<p>使修改生效，如此再javac就有反应了<br><img src="https://i.imgur.com/m8L1u2P.png" alt=""></p>
+<p>不放心可以执行下echo $PATH 看一下配置结果<br><img src="https://i.imgur.com/m8L1u2P.png" alt=""><br>此时，java环境配置结束</p>
+</excerpt>
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
+        
+            <li class="previous">
+                <a href= "/2017/09/24/netflow协议的监测/" title= Netflow协议流量分析与检测 >
+                    <span>Previous Post</span>
+                    <span>Netflow协议流量分析与检测</span>
+                </a>
+            </li>
         
     </ul>
     <!-- 来必力City版安装代码 -->

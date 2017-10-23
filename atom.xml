@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-24T07:23:45.730Z</updated>
+  <updated>2017-10-23T10:19:04.356Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos7安装jdk配置环境变量</title>
+    <link href="http://yoursite.com/2017/10/23/centos7%E4%B8%8Bjdk%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2017/10/23/centos7下jdk以及环境变量的配置/</id>
+    <published>2017-10-23T10:11:23.000Z</published>
+    <updated>2017-10-23T10:19:04.356Z</updated>
+    
+    <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""><p>   在Centos7 终端中，我们输入java -version可以看到java的版本，但是输入javac却没有反应</p><p>原因是系统中预装的是openjdk jre不是真正的jdk，所以还得自己装好，然后配置好变量才行<br>  1、yum list java-*<br><img src="https://i.imgur.com/koPUiKg.png" alt=""></p><p>2、安装相应版本的jdk，一般含有devel的就是真正的jdk，如：java-1.8.0-openjdk-devel.x86_64</p><p>命令：yum install java-1.8.0-openjdk-devel.x86_64<br><img src="https://i.imgur.com/WxW93C5.png" alt="">     </p><p>3、vi /etc/profile</p><p>添加环境变量(注意是分号分割)：</p><p>export JAVA_HOME=/usr/lib/jvm/java</p><p>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/jre/lib/rt.jar</p><p>export PATH=$PATH:$JAVA_HOME/bin<br><img src="https://i.imgur.com/dBwskGU.png" alt=""></p><p>4、source  /etc/profile</p><p>使修改生效，如此再javac就有反应了<br><img src="https://i.imgur.com/m8L1u2P.png" alt=""></p><p>不放心可以执行下echo $PATH 看一下配置结果<br><img src="https://i.imgur.com/m8L1u2P.png" alt=""><br>此时，java环境配置结束</p></excerpt>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;excerpt in=&quot;&quot; index=&quot;&quot; |=&quot;&quot; 首页摘要=&quot;&quot;&gt;
+
+&lt;p&gt;   在Centos7 终端中，我们输入java -version可以看到java的版本，但是输入javac却没有反应&lt;/p&gt;
+&lt;p&gt;原因是系统中预装的是openjdk jre不是真正的jdk，所
+      
+    
+    </summary>
+    
+      <category term="know" scheme="http://yoursite.com/categories/know/"/>
+    
+    
+      <category term="Markdown" scheme="http://yoursite.com/tags/Markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>Netflow协议流量分析与检测</title>
